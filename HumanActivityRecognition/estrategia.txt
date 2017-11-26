@@ -1,0 +1,17 @@
+- tentar adicionar termos não-lineares e termos de interação no classificador. Mostrar non-linear boundaries between classes
+
+- adicionar termos de interação
+
+- pensar em data augmentation
+
+ESTATREGIA
+
+- Vendo que o classificador de Regressão Logistica (classificador linear) obteve bons resultados (78%), tentei utilisar classificador SVM com núcleos radial e polinomial para adicionar termos de interação entre os preditores. O classificador SVM com nucleo radial teve melhor acurácia, indicando que a relação entre a resposta e os preditores não é tão linear.
+
+- Problemas com Rede Neural: overfitting no training set, obtendo uma acuracia de 99% nele, enquanto a acuracia no test set não passou dos 80%
+Seria necessario estudar diferentes arquiteturas e comparar resultados
+
+- No geral, os classificadores de Regressão Logistica e SVM obtiveram melhores resultados para as classes 'Walking'
+No entanto, a rede neural teve resultados muito melhores para as classes 'Upstairs' e 'Downstair' (taxa acerto: 26% e 25%) do que os classificadores SVM e Regressão Logistica
+
+- Usando pesos balanceados para cada classe no fitting do LogReg e do SVM a acuracia diminui um pouco (~5%) mas a taxa de sucesso para 'Downstairs' et 'Upstairs' cresceu muito (5% -> 40%). Se for considerado pior um falso-negativo para 'Downstairs' do que um falso-negativo para 'Walking', ou se a perda de acuracia para 'Walking' for aceitavel decido ao aumento de acuracia para 'Downstairs', entao pode-se aumentar ainda mais o peso  
